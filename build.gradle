@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.5.10'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group 'com.hnp.example'
+version '1.0-SNAPSHOT'
+targetCompatibility = '17'
+sourceCompatibility = '17'
+
+repositories {
+    mavenLocal()
+    gradlePluginPortal()
+    mavenCentral()
+    maven {
+        url "https://packages.confluent.io/maven/"
+    }
+}
+
+ext {
+    lombokVersion = '1.18.24'
+}
+
+dependencies {
+    // Spring Dependencies
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.kafka:spring-kafka"
+
+    implementation "com.hnp:avro-schema:1.0-SNAPSHOT"
+
+    // Lombok Dependencies
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    // Avro dependencies
+    implementation 'org.apache.avro:avro:1.11.0'
+    implementation 'org.apache.kafka:kafka-clients:3.1.0'
+    implementation 'io.confluent:kafka-avro-serializer:3.2.1'
+}
+
+test {
+    useJUnitPlatform()
+}

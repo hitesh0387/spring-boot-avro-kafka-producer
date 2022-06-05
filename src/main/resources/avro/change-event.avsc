@@ -1,0 +1,34 @@
+{
+  "namespace": "com.hnp.example.event",
+  "type": "record",
+  "name": "ConfigChangeEvent",
+  "fields": [
+    {
+      "name": "profileUUID",
+      "type": "string"
+    },
+    {
+      "name": "profileId",
+      "type": "long"
+    },
+    {
+      "name": "profileName",
+      "type": "string"
+    },
+    {
+      "name": "profileType",
+      "type": "string"
+    },
+    {
+      "name": "cron",
+      "type": "string"
+    },
+    {
+      "name": "eventTimeStamp",
+      "type": {
+        "type": "long",
+        "logicalType": "local-timestamp-millis"
+      }
+    }
+  ]
+}

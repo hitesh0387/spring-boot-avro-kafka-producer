@@ -1,0 +1,17 @@
+spring:
+  application-name: spring-boot-avro-kafka-producer
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    properties:
+      schema.registry.url: http://localhost:8081
+
+server:
+  port: 9091
+
+kafka:
+  config:
+    change:
+      topic: config.change.topic
